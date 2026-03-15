@@ -19,11 +19,11 @@ class WeatherController extends Controller
         $lon = $request->query('lon', env('WEATHER_DEFAULT_LON', '125.8094'));
 
         $response = Http::timeout(10)->get('https://api.open-meteo.com/v1/forecast', [
-            'latitude'   => $lat,
-            'longitude'  => $lon,
-            'current'    => 'temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,apparent_temperature',
-            'daily'      => 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum',
-            'timezone'   => 'Asia/Manila',
+            'latitude' => $lat,
+            'longitude' => $lon,
+            'current' => 'temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,apparent_temperature',
+            'daily' => 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum',
+            'timezone' => 'Asia/Manila',
             'forecast_days' => 6,
         ]);
 
@@ -50,10 +50,10 @@ class WeatherController extends Controller
         }
 
         $response = Http::timeout(8)->get('https://geocoding-api.open-meteo.com/v1/search', [
-            'name'     => $city,
-            'count'    => 5,
+            'name' => $city,
+            'count' => 5,
             'language' => 'en',
-            'format'   => 'json',
+            'format' => 'json',
         ]);
 
         if ($response->failed()) {

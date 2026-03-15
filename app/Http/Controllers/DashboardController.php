@@ -74,9 +74,9 @@ class DashboardController extends Controller
         $schoolYear = '2025-2026';
 
         $distribution = Course::leftJoin('students', function ($join) use ($schoolYear) {
-                $join->on('courses.id', '=', 'students.course_id')
-                     ->where('students.school_year', '=', $schoolYear);
-            })
+            $join->on('courses.id', '=', 'students.course_id')
+                ->where('students.school_year', '=', $schoolYear);
+        })
             ->select(
                 'courses.id',
                 'courses.course_code',

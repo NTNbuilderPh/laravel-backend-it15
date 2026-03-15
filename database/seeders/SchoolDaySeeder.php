@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\SchoolDay;
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class SchoolDaySeeder extends Seeder
 {

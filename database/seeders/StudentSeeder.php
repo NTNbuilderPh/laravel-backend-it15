@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Course;
 use App\Models\Student;
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
 {
@@ -29,7 +29,7 @@ class StudentSeeder extends Seeder
             'Braulio E. Dujali',
             'Carmen',
             'Talaingod',
-            'San Isidro'
+            'San Isidro',
         ];
 
         $yearLevels = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
@@ -38,7 +38,7 @@ class StudentSeeder extends Seeder
 
         for ($i = 1; $i <= 500; $i++) {
             Student::create([
-                'student_id' => '2025-' . str_pad($i, 5, '0', STR_PAD_LEFT),
+                'student_id' => '2025-'.str_pad($i, 5, '0', STR_PAD_LEFT),
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
                 'middle_name' => $faker->optional(0.7)->lastName,
