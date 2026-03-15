@@ -27,4 +27,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Explicit accessors to avoid relying on magic methods for common fields
+    public function getNameValue(): ?string
+    {
+        return $this->name ?? null;
+    }
+
+    public function getEmailValue(): ?string
+    {
+        return $this->email ?? null;
+    }
 }

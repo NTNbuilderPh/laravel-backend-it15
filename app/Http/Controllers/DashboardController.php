@@ -6,10 +6,11 @@ use App\Models\Course;
 use App\Models\SchoolDay;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\JsonResponse;
 
 class DashboardController extends Controller
 {
-    public function stats()
+    public function stats(): JsonResponse
     {
         $schoolYear = '2025-2026';
 
@@ -34,7 +35,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function enrollmentTrends()
+    public function enrollmentTrends(): JsonResponse
     {
         $schoolYear = '2025-2026';
 
@@ -69,7 +70,7 @@ class DashboardController extends Controller
         return response()->json($data);
     }
 
-    public function courseDistribution()
+    public function courseDistribution(): JsonResponse
     {
         $schoolYear = '2025-2026';
 
@@ -90,7 +91,7 @@ class DashboardController extends Controller
         return response()->json($distribution);
     }
 
-    public function attendancePatterns()
+    public function attendancePatterns(): JsonResponse
     {
         $schoolYear = '2025-2026';
 
@@ -110,7 +111,7 @@ class DashboardController extends Controller
         return response()->json($attendance);
     }
 
-    public function demographics()
+    public function demographics(): JsonResponse
     {
         $schoolYear = '2025-2026';
 

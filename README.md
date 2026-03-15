@@ -139,31 +139,31 @@ Password: password123
 
 ### Protected (requires `Authorization: Bearer <token>`)
 
-| Method | Endpoint                              | Description                        |
-|--------|---------------------------------------|------------------------------------|
-| GET    | `/api/me`                             | Get authenticated user             |
-| POST   | `/api/logout`                         | Revoke current token               |
-| GET    | `/api/students`                       | List students (paginated, filtered)|
-| GET    | `/api/students/{id}`                  | Get a single student               |
-| GET    | `/api/courses`                        | List all courses with student count|
-| GET    | `/api/dashboard/stats`                | Overall dashboard statistics       |
-| GET    | `/api/dashboard/enrollment-trends`    | Monthly enrollment data            |
-| GET    | `/api/dashboard/course-distribution`  | Students per course                |
-| GET    | `/api/dashboard/attendance-patterns`  | Daily attendance records           |
-| GET    | `/api/dashboard/demographics`         | Gender, year level, city breakdown |
-| GET    | `/api/weather/forecast`               | Current conditions + 5-day forecast |
-| GET    | `/api/weather/geocode?city=Tagum`     | Geocode a city name to lat/lon      |
+| Method | Endpoint                             | Description                         |
+|--------|--------------------------------------|-------------------------------------|
+| GET    | `/api/me`                            | Get authenticated user              |
+| POST   | `/api/logout`                        | Revoke current token                |
+| GET    | `/api/students`                      | List students (paginated, filtered) |
+| GET    | `/api/students/{id}`                 | Get a single student                |
+| GET    | `/api/courses`                       | List all courses with student count |
+| GET    | `/api/dashboard/stats`               | Overall dashboard statistics        |
+| GET    | `/api/dashboard/enrollment-trends`   | Monthly enrollment data             |
+| GET    | `/api/dashboard/course-distribution` | Students per course                 |
+| GET    | `/api/dashboard/attendance-patterns` | Daily attendance records            |
+| GET    | `/api/dashboard/demographics`        | Gender, year level, city breakdown  |
+| GET    | `/api/weather/forecast`              | Current conditions + 5-day forecast |
+| GET    | `/api/weather/geocode?city=Tagum`    | Geocode a city name to lat/lon      |
 
 ### Student Query Filters
 
 `GET /api/students` accepts the following optional query parameters:
 
-| Parameter     | Type   | Description                        |
-|---------------|--------|------------------------------------|
+| Parameter     | Type   | Description                              |
+|---------------|--------|------------------------------------------|
 | `school_year` | string | Filter by school year (e.g. `2025-2026`) |
-| `course_id`   | int    | Filter by course ID                |
-| `year_level`  | int    | Filter by year level (1–4)         |
-| `gender`      | string | Filter by gender (`Male`/`Female`) |
+| `course_id`   | int    | Filter by course ID                      |
+| `year_level`  | int    | Filter by year level (1–4)               |
+| `gender`      | string | Filter by gender (`Male`/`Female`)       |
 
 ## Sample Requests
 

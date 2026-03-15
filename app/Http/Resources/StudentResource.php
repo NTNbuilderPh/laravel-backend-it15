@@ -25,7 +25,10 @@ class StudentResource extends JsonResource
             'enrollment_date' => $this->enrollment_date?->format('Y-m-d'),
             'status' => $this->status,
             'school_year' => $this->school_year,
-            'course' => new CourseResource($this->whenLoaded('course')),
+            // Safely include related course when it is loaded; avoid creating Resource with null
+            'course' => $this->whenLoaded('course', function () {
+                return new CourseResource($this->course);
+            }),
         ];
     }
 }
