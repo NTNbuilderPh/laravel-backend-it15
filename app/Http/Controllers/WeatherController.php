@@ -15,10 +15,10 @@ class WeatherController extends Controller
      */
     public function forecast(Request $request)
     {
-        $lat = $request->query('lat', env('WEATHER_DEFAULT_LAT', '7.4467'));
-        $lon = $request->query('lon', env('WEATHER_DEFAULT_LON', '125.8094'));
+        $lat = $request->query('lat', config('weather.default_lat'));
+        $lon = $request->query('lon', config('weather.default_lon'));
 
-        $response = Http::timeout(10)->get('https://api.open-meteo.com/v1/forecast', [
+        $response = Http::timeout(config('weather.timeout'))->get('https://api.open-meteo.com/v1/forecast', [
             'latitude' => $lat,
             'longitude' => $lon,
             'current' => 'temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,apparent_temperature',
@@ -49,7 +49,7 @@ class WeatherController extends Controller
             return response()->json(['message' => 'City name is required.'], 422);
         }
 
-        $response = Http::timeout(8)->get('https://geocoding-api.open-meteo.com/v1/search', [
+        $response = Http::timeout(config('weather.geocode_timeout'))->get('https://geocoding-api.open-meteo.com/v1/search', [
             'name' => $city,
             'count' => 5,
             'language' => 'en',
